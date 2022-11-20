@@ -56,7 +56,7 @@ export default function BasicTable(props) {
 /></TableCell>
               <TableCell align="right">{!row.isComplete && <Button
               variant="contained"
-              onClick={() => props.updateTask(row.id)}>
+              onClick={() => props.openUpdate(row.id)}>
              UPDATE</Button>}<br></br><Button
               variant="contained"
               color="error"

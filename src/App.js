@@ -23,6 +23,7 @@ export default function App() {
   const [description, setDescription] = React.useState('');
   const [priority, setPriority] = React.useState('low');
   const [editingId, setEditingId] = React.useState(1);
+  const [editing, setEditing] = React.useState(false);
   /*
   let rows = [
     addTask('title01', 'description01', '02/03/22', 'low', 'true', 'none'),
@@ -61,6 +62,15 @@ export default function App() {
     toastr.success('Task deleted successfully');
   }
 
+  function openUpdate(id) {
+    let taskToUpdate = tasks.find((x) => x.id == id);
+    setEditingId(id);
+    setEditing(true);
+    setDescription(taskToUpdate.description);
+    setPriority(taskToUpdate.priority);
+    setFormOpen(true);
+  }
+
   function toggleComplete(id) {
     setTasks((arr) =>
       arr.map((t) => (t.id === id ? { ...t, isComplete: 'changed' } : t))
@@ -84,10 +94,16 @@ export default function App() {
     if (
       title != '' &&
       description != '' &&
-      tasks.findIndex((a) => a.title == title) == -1
+      tasks.findIndex((a) => a.title == title) == -1 &&
+      !editing
     ) {
       pushTask(count, title, description, 'test', priority, false, 'nothing');
       setCount(count + 1);
+      setFormOpen(false);
+    } else if (editing == true) {
+      let updatedTask = tasks.find((a) => a.id == editingId);
+      updatedTask.description = description;
+      updatedTask.priority = priority;
       setFormOpen(false);
     }
   };
@@ -112,6 +128,8 @@ export default function App() {
         setDescription={setDescription}
         priority={priority}
         setPriority={setPriority}
+        editingId={editingId}
+        editing={editing}
       />
       <TopBar handleClickOpen={handleClickOpen} />
       <div>
@@ -151,6 +169,7 @@ export default function App() {
         count={count}
         deleteTask={deleteTask}
         toggleComplete={toggleComplete}
+        openUpdate={openUpdate}
       />
       <FormDialog />
     </div>

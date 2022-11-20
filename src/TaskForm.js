@@ -27,18 +27,20 @@ export default function TaskForm(props) {
           </Typography>
         </DialogTitle>
         <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="title"
-            label="Title"
-            type="text"
-            fullWidth
-            variant="standard"
-            color="warning"
-            value={props.title}
-            onChange={(e) => props.setTitle(e.target.value)}
-          />
+          {!props.editing && (
+            <TextField
+              autoFocus
+              margin="dense"
+              id="title"
+              label="Title"
+              type="text"
+              fullWidth
+              variant="standard"
+              color="warning"
+              value={props.title}
+              onChange={(e) => props.setTitle(e.target.value)}
+            />
+          )}
           <TextField
             autoFocus
             margin="dense"
