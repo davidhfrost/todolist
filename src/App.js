@@ -8,6 +8,8 @@ import toastr from 'toastr';
 import 'toastr/build/toastr.css';
 import $ from 'jquery';
 
+import moment from 'moment';
+
 export default function App() {
   // Used to keep track of id for update/delete
   const [formOpen, setFormOpen] = React.useState(false);
@@ -22,7 +24,7 @@ export default function App() {
   const [priority, setPriority] = React.useState('low');
   const [editingId, setEditingId] = React.useState(1);
   const [editing, setEditing] = React.useState(false);
-  const [deadline, setDeadline] = React.useState('');
+  const [deadline, setDeadline] = React.useState(moment());
   const [titleError, setTitleError] = React.useState(false);
   const [descriptionError, setDescriptionError] = React.useState(false);
   /*
@@ -98,7 +100,15 @@ export default function App() {
       tasks.findIndex((a) => a.title == title) == -1 &&
       !editing
     ) {
-      pushTask(count, title, description, 'test', priority, false, 'nothing');
+      pushTask(
+        count,
+        title,
+        description,
+        deadline.format('MM/DD/YYYY'),
+        priority,
+        false,
+        'nothing'
+      );
       setCount(count + 1);
       resetForm();
       setFormOpen(false);
@@ -128,7 +138,7 @@ export default function App() {
     setDescription('');
     setPriority('low');
     setEditing(false);
-    setDeadline('');
+    setDeadline(moment());
     setTitleError(false);
     setDescriptionError(false);
   }
@@ -139,6 +149,7 @@ export default function App() {
   function updateTask(id) {}
   return (
     <div>
+      <p>Date is: {deadline.format('MM-DD-YYYY')}</p>
       <TaskForm
         formOpen={formOpen}
         setFormOpen={setFormOpen}
@@ -188,7 +199,6 @@ export default function App() {
         toggleComplete={toggleComplete}
         openUpdate={openUpdate}
       />
-      <FormDialog />
     </div>
   );
 }

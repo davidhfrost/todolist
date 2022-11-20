@@ -63,7 +63,8 @@ export default function TaskForm(props) {
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               label="Deadline"
-              value={props.deadline}
+              value={props.deadline.toString()}
+              inputFormat="MM/DD/YYYY"
               onChange={(newValue) => {
                 props.setDeadline(newValue);
               }}
