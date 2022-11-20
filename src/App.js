@@ -119,10 +119,11 @@ export default function App() {
       let updatedTask = tasks.find((a) => a.id == editingId);
       updatedTask.description = description;
       updatedTask.priority = priority;
+      updatedTask.deadline = deadline.format('MM/DD/YYYY');
       resetForm();
       setFormOpen(false);
       toastr.success('Task updated successfully!');
-    } 
+    }
     // If title is empty or description is empty, do not add task and add errors
     else {
       if (!title) {
