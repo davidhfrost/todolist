@@ -17,6 +17,9 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import DoNotDisturbIcon from '@mui/icons-material/DoDisturb';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 // Date picker
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -28,16 +31,15 @@ export default function TaskForm(props) {
     <div>
       <Dialog open={props.formOpen} onClose={props.handleClose}>
         <DialogTitle>
-          <span>
-            <AddCircleIcon />
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1, textAlign: 'center' }}
-            >
-              Add Task
-            </Typography>
-          </span>
+          <AppBar sx={{ position: 'absolute' }} fullWidth>
+            <Toolbar>
+              <AddCircleIcon />
+              <Typography variant="h6" component="div">
+                Add Task
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <br></br>
         </DialogTitle>
         <DialogContent>
           <br></br>
