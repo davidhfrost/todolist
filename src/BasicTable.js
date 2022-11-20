@@ -22,10 +22,6 @@ export default function createData(title, description, deadline, priority, isCom
 export default function BasicTable(props) {
   const handleDelete = (postIndex) => {
     props.rows = props.rows.filter((_, index) => index !== postIndex)
-    /*
-    setPosts((rows) =>
-      rows.filter((_, index) => index !== postIndex)
-    );*/
   };
   return (
     <TableContainer component={Paper}>

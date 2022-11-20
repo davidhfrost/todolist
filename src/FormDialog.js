@@ -23,8 +23,6 @@ export default function FormDialog() {
     setOpen(false);
   };
 
-  /* Description, deadline, priority
-  Edit, cancel*/
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>

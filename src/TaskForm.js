@@ -126,9 +126,6 @@ export default function TaskForm(props) {
             <DoNotDisturbIcon />
             Cancel
           </Button>
-          {/*
-          <Button onClick={props.handleClose}>Add</Button>
-          <Button onClick={props.handleClose}>Cancel</Button>*/}
         </DialogActions>
       </Dialog>
     </div>

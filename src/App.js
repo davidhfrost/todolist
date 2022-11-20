@@ -26,10 +26,6 @@ export default function App() {
   const [titleError, setTitleError] = React.useState(false);
   const [descriptionError, setDescriptionError] = React.useState(false);
   const [uniqueTitleError, setUniqueTitleError] = React.useState(false);
-  /*
-  let rows = [
-    addTask('title01', 'description01', '02/03/22', 'low', 'true', 'none'),
-  ];*/
 
   function pushTask(
     id,
@@ -50,12 +46,6 @@ export default function App() {
     );
     setCount(count + 1);
     toastr.success('Task added successfully!');
-    /*
-    setTasks(
-      copy.concat[
-        addTask({ title, description, deadline, priority, isComplete, action })
-      ]
-    );*/
     console.log(tasks);
   }
 
@@ -161,7 +151,6 @@ export default function App() {
   function updateTask(id) {}
   return (
     <div>
-      {/*<p>Date is: {deadline.format('MM-DD-YYYY')}</p>*/}
       <TaskForm
         formOpen={formOpen}
         setFormOpen={setFormOpen}
@@ -196,11 +185,6 @@ export default function App() {
   );
 }
 
-/*
-function pushTask(title, description, deadline, priority, isComplete, action) {
-  setTasks(tasks.push({title, description, deadline, priority, isComplete, action }));
-}
-*/
 function addTask(
   id,
   title,
