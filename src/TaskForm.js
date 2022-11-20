@@ -7,6 +7,11 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Typography from '@mui/material/Typography';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 
 export default function TaskForm(props) {
   return (
@@ -44,6 +49,19 @@ export default function TaskForm(props) {
             value={props.description}
             onChange={(e) => props.setDescription(e.target.value)}
           />
+          <FormControl>
+            <FormLabel id="priority-group">Priority</FormLabel>
+            <RadioGroup
+              aria-labelledby="priority-group"
+              name="priority-group"
+              value={props.priority}
+              onChange={(e) => props.setPriority(e.target.value)}
+            >
+              <FormControlLabel value="low" control={<Radio />} label="Low" />
+              <FormControlLabel value="med" control={<Radio />} label="Med" />
+              <FormControlLabel value="high" control={<Radio />} label="High" />
+            </RadioGroup>
+          </FormControl>
         </DialogContent>
         <DialogActions>
           <Button variant="contained" onClick={() => props.handleClickAdd()}>

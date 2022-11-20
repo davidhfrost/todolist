@@ -21,6 +21,7 @@ export default function App() {
 
   const [title, setTitle] = React.useState('');
   const [description, setDescription] = React.useState('');
+  const [priority, setPriority] = React.useState('low');
   /*
   let rows = [
     addTask('title01', 'description01', '02/03/22', 'low', 'true', 'none'),
@@ -79,7 +80,7 @@ export default function App() {
 
   const handleClickAdd = () => {
     console.log(title);
-    pushTask(count, title, description, 'test', 'med', false, 'nothing');
+    pushTask(count, title, description, 'test', priority, false, 'nothing');
     setCount(count + 1);
     setFormOpen(false);
   };
@@ -102,6 +103,8 @@ export default function App() {
         setTitle={setTitle}
         description={description}
         setDescription={setDescription}
+        priority={priority}
+        setPriority={setPriority}
       />
       <TopBar handleClickOpen={handleClickOpen} />
       <div>
