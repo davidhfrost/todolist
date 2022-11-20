@@ -42,8 +42,19 @@ export default function TaskForm(props) {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.handleClose}>Cancel</Button>
-          <Button onClick={props.handleClose}>Subscribe</Button>
+          <Button variant="contained" onClick={() => props.handleClose()}>
+            Add
+          </Button>
+          <Button
+            variant="contained"
+            color="error"
+            onClick={() => props.handleClose()}
+          >
+            Cancel
+          </Button>
+          {/*
+          <Button onClick={props.handleClose}>Add</Button>
+          <Button onClick={props.handleClose}>Cancel</Button>*/}
         </DialogActions>
       </Dialog>
     </div>

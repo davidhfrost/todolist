@@ -61,7 +61,6 @@ export default function BasicTable(props) {
               variant="contained"
               color="error"
               onClick={() => props.deleteTask(row.id)}
-              //onClick={() => props.setCount(props.count + 1)}//{() => handleDelete(row.title)}
              >DELETE</Button></TableCell>
             </TableRow>
           ))}
