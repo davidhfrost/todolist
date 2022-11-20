@@ -10,6 +10,9 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
+import DoDisturbIcon from '@mui/icons-material/DoDisturb';
+
 
 
 export default function createData(title, description, deadline, priority, isComplete, action) {
@@ -56,12 +59,12 @@ export default function BasicTable(props) {
 /></TableCell>
               <TableCell align="right">{!row.isComplete && <Button
               variant="contained"
-              onClick={() => props.openUpdate(row.id)}>
+              onClick={() => props.openUpdate(row.id)}> <BorderColorIcon />
              UPDATE</Button>}<br></br><Button
               variant="contained"
               color="error"
               onClick={() => props.deleteTask(row.id)}
-             >DELETE</Button></TableCell>
+             ><DoDisturbIcon />DELETE</Button></TableCell>
             </TableRow>
           ))}
         </TableBody>
