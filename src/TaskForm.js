@@ -14,6 +14,8 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import AppBar from '@mui/material/AppBar';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
+import DoDisturbIcon from '@mui/icons-material/DoDisturb';
 
 // Date picker
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -105,6 +107,7 @@ export default function TaskForm(props) {
         </DialogContent>
         <DialogActions>
           <Button variant="contained" onClick={() => props.handleClickAdd()}>
+            <AddCircleIcon />
             Add
           </Button>
           <Button
@@ -112,6 +115,7 @@ export default function TaskForm(props) {
             color="error"
             onClick={() => props.handleClickCancel()}
           >
+            <DoDisturbIcon />
             Cancel
           </Button>
           {/*
