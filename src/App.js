@@ -22,6 +22,7 @@ export default function App() {
   const [title, setTitle] = React.useState('');
   const [description, setDescription] = React.useState('');
   const [priority, setPriority] = React.useState('low');
+  const [editingId, setEditingId] = React.useState(1);
   /*
   let rows = [
     addTask('title01', 'description01', '02/03/22', 'low', 'true', 'none'),
@@ -80,9 +81,15 @@ export default function App() {
 
   const handleClickAdd = () => {
     console.log(title);
-    pushTask(count, title, description, 'test', priority, false, 'nothing');
-    setCount(count + 1);
-    setFormOpen(false);
+    if (
+      title != '' &&
+      description != '' &&
+      tasks.findIndex((a) => a.title == title) == -1
+    ) {
+      pushTask(count, title, description, 'test', priority, false, 'nothing');
+      setCount(count + 1);
+      setFormOpen(false);
+    }
   };
 
   const handleClose = () => {

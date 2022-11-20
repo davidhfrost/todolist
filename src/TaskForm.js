@@ -35,6 +35,7 @@ export default function TaskForm(props) {
             type="text"
             fullWidth
             variant="standard"
+            color="warning"
             value={props.title}
             onChange={(e) => props.setTitle(e.target.value)}
           />
