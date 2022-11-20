@@ -30,28 +30,30 @@ export default function TaskForm(props) {
           {!props.editing && (
             <TextField
               autoFocus
-              margin="dense"
               id="title"
               label="Title"
               type="text"
-              fullWidth
-              variant="standard"
-              color="warning"
+              //variant="standard"
+              //color="warning"
               value={props.title}
               onChange={(e) => props.setTitle(e.target.value)}
+              error={props.titleError}
             />
           )}
+          <br></br>
+          <br></br>
           <TextField
             autoFocus
-            margin="dense"
             id="description"
             label="Description"
             type="text"
-            fullWidth
-            variant="standard"
+            //variant="standard"
             value={props.description}
             onChange={(e) => props.setDescription(e.target.value)}
+            error={props.descriptionError} //{props.description.length != 0 ? false : true}
+            //{props.description.length == 0 && helperText="Description is required!"}
           />
+          <br></br>
           <FormControl>
             <FormLabel id="priority-group">Priority</FormLabel>
             <RadioGroup

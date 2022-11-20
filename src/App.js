@@ -23,6 +23,8 @@ export default function App() {
   const [editingId, setEditingId] = React.useState(1);
   const [editing, setEditing] = React.useState(false);
   const [deadline, setDeadline] = React.useState('');
+  const [titleError, setTitleError] = React.useState(false);
+  const [descriptionError, setDescriptionError] = React.useState(false);
   /*
   let rows = [
     addTask('title01', 'description01', '02/03/22', 'low', 'true', 'none'),
@@ -106,8 +108,16 @@ export default function App() {
       setFormOpen(false);
       toastr.success('Task updated successfully!');
     } else {
-      console.log(count);
-      // add stuff here
+      if (!title) {
+        setTitleError(true);
+      } else {
+        setTitleError(false);
+      }
+      if (!description) {
+        setDescriptionError(true);
+      } else {
+        setDescriptionError(false);
+      }
     }
   };
 
@@ -133,6 +143,8 @@ export default function App() {
         setPriority={setPriority}
         editingId={editingId}
         editing={editing}
+        titleError={titleError}
+        descriptionError={descriptionError}
       />
       <TopBar handleClickOpen={handleClickOpen} />
       <div>
