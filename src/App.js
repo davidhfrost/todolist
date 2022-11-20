@@ -95,6 +95,7 @@ export default function App() {
 
   const handleClickAdd = () => {
     console.log(title);
+    // If title and description are valid (non-empty and unique) add the task
     if (
       title != '' &&
       description != '' &&
@@ -113,6 +114,7 @@ export default function App() {
       setCount(count + 1);
       resetForm();
       setFormOpen(false);
+      // If editing a task
     } else if (editing == true) {
       let updatedTask = tasks.find((a) => a.id == editingId);
       updatedTask.description = description;
@@ -120,7 +122,9 @@ export default function App() {
       resetForm();
       setFormOpen(false);
       toastr.success('Task updated successfully!');
-    } else {
+    } 
+    // If title is empty or description is empty, do not add task and add errors
+    else {
       if (!title) {
         setTitleError(true);
       } else {
