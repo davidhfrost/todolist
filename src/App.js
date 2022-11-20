@@ -18,6 +18,9 @@ export default function App() {
   const [tasks, setTasks] = React.useState([
     addTask(1, 'title01', 'description01', '02/03/22', 'low', true, 'none'),
   ]);
+
+  const [title, setTitle] = React.useState('');
+  const [description, setDescription] = React.useState('');
   /*
   let rows = [
     addTask('title01', 'description01', '02/03/22', 'low', 'true', 'none'),
@@ -75,6 +78,9 @@ export default function App() {
   };
 
   const handleClickAdd = () => {
+    console.log(title);
+    pushTask(count, title, description, 'test', 'med', false, 'nothing');
+    setCount(count + 1);
     setFormOpen(false);
   };
 
@@ -92,11 +98,18 @@ export default function App() {
         handleClose={handleClose}
         handleClickCancel={handleClickCancel}
         handleClickAdd={handleClickAdd}
+        title={title}
+        setTitle={setTitle}
+        description={description}
+        setDescription={setDescription}
       />
       <TopBar handleClickOpen={handleClickOpen} />
       <div>
         <p>You clicked {count} times</p>
         <button onClick={() => setCount(count + 1)}>Click me</button>
+      </div>
+      <div>
+        <p> Title is {title}</p>
       </div>
       <div>
         <p>You have {count} times</p>

@@ -30,6 +30,8 @@ export default function TaskForm(props) {
             type="text"
             fullWidth
             variant="standard"
+            value={props.title}
+            onChange={(e) => props.setTitle(e.target.value)}
           />
           <TextField
             autoFocus
@@ -39,6 +41,8 @@ export default function TaskForm(props) {
             type="text"
             fullWidth
             variant="standard"
+            value={props.description}
+            onChange={(e) => props.setDescription(e.target.value)}
           />
         </DialogContent>
         <DialogActions>
