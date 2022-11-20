@@ -89,6 +89,7 @@ export default function App() {
   };
 
   const handleClickCancel = () => {
+    resetForm();
     setFormOpen(false);
   };
 
@@ -149,7 +150,7 @@ export default function App() {
   function updateTask(id) {}
   return (
     <div>
-      <p>Date is: {deadline.format('MM-DD-YYYY')}</p>
+      {/*<p>Date is: {deadline.format('MM-DD-YYYY')}</p>*/}
       <TaskForm
         formOpen={formOpen}
         setFormOpen={setFormOpen}
@@ -171,26 +172,6 @@ export default function App() {
         setDeadline={setDeadline}
       />
       <TopBar handleClickOpen={handleClickOpen} />
-      <div>
-        <p>You clicked {count} times</p>
-      </div>
-      <div>
-        <button
-          onClick={() =>
-            pushTask(
-              count,
-              'title01',
-              'description02',
-              '02/04/22',
-              'high',
-              false,
-              'empty'
-            )
-          }
-        >
-          Click me
-        </button>
-      </div>
       <BasicTable
         rows={tasks}
         setCount={setCount}
