@@ -1,7 +1,5 @@
 import React from 'react';
 import './style.css';
-import Task from './Task.js';
-import AddNew from './AddNew.js';
 import BasicTable from './BasicTable.js';
 import FormDialog from './FormDialog.js';
 import TopBar from './TopBar.js';
@@ -24,6 +22,7 @@ export default function App() {
   const [priority, setPriority] = React.useState('low');
   const [editingId, setEditingId] = React.useState(1);
   const [editing, setEditing] = React.useState(false);
+  const [deadline, setDeadline] = React.useState('');
   /*
   let rows = [
     addTask('title01', 'description01', '02/03/22', 'low', 'true', 'none'),
@@ -105,6 +104,10 @@ export default function App() {
       updatedTask.description = description;
       updatedTask.priority = priority;
       setFormOpen(false);
+      toastr.success('Task updated successfully!');
+    } else {
+      console.log(count);
+      // add stuff here
     }
   };
 
@@ -134,19 +137,10 @@ export default function App() {
       <TopBar handleClickOpen={handleClickOpen} />
       <div>
         <p>You clicked {count} times</p>
-        <button onClick={() => setCount(count + 1)}>Click me</button>
       </div>
       <div>
-        <p> Title is {title}</p>
-      </div>
-      <div>
-        <p>You have {count} times</p>
         <button
           onClick={() =>
-            /*
-            setTasks(tasks.concat[addTask('title02', 'description02, 02/04/22', 'high', 'false', 'none')])
-            */
-
             pushTask(
               count,
               'title01',
@@ -161,8 +155,6 @@ export default function App() {
           Click me
         </button>
       </div>
-      <Task />
-      <AddNew />
       <BasicTable
         rows={tasks}
         setCount={setCount}
