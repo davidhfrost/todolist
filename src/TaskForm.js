@@ -12,6 +12,8 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import AppBar from '@mui/material/AppBar';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 // Date picker
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -23,13 +25,16 @@ export default function TaskForm(props) {
     <div>
       <Dialog open={props.formOpen} onClose={props.handleClose}>
         <DialogTitle>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, textAlign: 'center' }}
-          >
-            Add Task
-          </Typography>
+          <span>
+            <AddCircleIcon />
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, textAlign: 'center' }}
+            >
+              Add Task
+            </Typography>
+          </span>
         </DialogTitle>
         <DialogContent>
           <br></br>
@@ -86,6 +91,7 @@ export default function TaskForm(props) {
           <FormControl>
             <FormLabel id="priority-group">Priority</FormLabel>
             <RadioGroup
+              row
               aria-labelledby="priority-group"
               name="priority-group"
               value={props.priority}
