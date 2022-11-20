@@ -100,11 +100,13 @@ export default function App() {
     ) {
       pushTask(count, title, description, 'test', priority, false, 'nothing');
       setCount(count + 1);
+      resetForm();
       setFormOpen(false);
     } else if (editing == true) {
       let updatedTask = tasks.find((a) => a.id == editingId);
       updatedTask.description = description;
       updatedTask.priority = priority;
+      resetForm();
       setFormOpen(false);
       toastr.success('Task updated successfully!');
     } else {
@@ -121,6 +123,15 @@ export default function App() {
     }
   };
 
+  function resetForm() {
+    setTitle('');
+    setDescription('');
+    setPriority('low');
+    setEditing(false);
+    setDeadline('');
+    setTitleError(false);
+    setDescriptionError(false);
+  }
   const handleClose = () => {
     setFormOpen(false);
   };
