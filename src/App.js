@@ -156,6 +156,8 @@ export default function App() {
         editing={editing}
         titleError={titleError}
         descriptionError={descriptionError}
+        deadline={deadline}
+        setDeadline={setDeadline}
       />
       <TopBar handleClickOpen={handleClickOpen} />
       <div>

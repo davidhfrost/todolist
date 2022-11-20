@@ -13,6 +13,11 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
+// Date picker
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+
 export default function TaskForm(props) {
   return (
     <div>
@@ -53,6 +58,19 @@ export default function TaskForm(props) {
             error={props.descriptionError} //{props.description.length != 0 ? false : true}
             //{props.description.length == 0 && helperText="Description is required!"}
           />
+          <br></br>
+          <br></br>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              label="Deadline"
+              value={props.deadline}
+              onChange={(newValue) => {
+                props.setDeadline(newValue);
+              }}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </LocalizationProvider>
+          <br></br>
           <br></br>
           <FormControl>
             <FormLabel id="priority-group">Priority</FormLabel>
