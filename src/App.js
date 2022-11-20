@@ -25,6 +25,7 @@ export default function App() {
   const [deadline, setDeadline] = React.useState(moment());
   const [titleError, setTitleError] = React.useState(false);
   const [descriptionError, setDescriptionError] = React.useState(false);
+  const [uniqueTitleError, setUniqueTitleError] = React.useState(false);
   /*
   let rows = [
     addTask('title01', 'description01', '02/03/22', 'low', 'true', 'none'),
@@ -130,6 +131,11 @@ export default function App() {
       } else {
         setDescriptionError(false);
       }
+      if (tasks.findIndex((a) => a.title == title) != -1 && !editing) {
+        setUniqueTitleError(true);
+      } else {
+        setUniqueTitleError(false);
+      }
     }
   };
 
@@ -141,6 +147,7 @@ export default function App() {
     setDeadline(moment());
     setTitleError(false);
     setDescriptionError(false);
+    setUniqueTitleError(false);
   }
   const handleClose = () => {
     setFormOpen(false);
@@ -169,6 +176,7 @@ export default function App() {
         descriptionError={descriptionError}
         deadline={deadline}
         setDeadline={setDeadline}
+        uniqueTitleError={uniqueTitleError}
       />
       <TopBar handleClickOpen={handleClickOpen} />
       <BasicTable

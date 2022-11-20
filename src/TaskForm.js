@@ -52,9 +52,12 @@ export default function TaskForm(props) {
               //color="warning"
               value={props.title}
               onChange={(e) => props.setTitle(e.target.value)}
-              error={props.titleError}
+              error={props.titleError || props.uniqueTitleError}
               {...(props.titleError
                 ? { helperText: 'Title is Required!' }
+                : {})}
+              {...(props.uniqueTitleError
+                ? { helperText: 'Title is not Unique!' }
                 : {})}
             />
           )}
