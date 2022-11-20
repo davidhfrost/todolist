@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import DensitySmallIcon from '@mui/icons-material/DensitySmall';
 
 export default function TopBar(props) {
   return (
@@ -28,9 +29,9 @@ export default function TopBar(props) {
           >
             FRAMEWORKS
           </Typography>
-          <Button color="inherit" onClick={() => props.handleClickOpen()}>
+          <IconButton color="inherit" onClick={() => props.handleClickOpen()}>
             ADD
-          </Button>
+          </IconButton>
         </Toolbar>
       </AppBar>
     </Box>

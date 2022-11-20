@@ -32,17 +32,22 @@ export default function TaskForm(props) {
           </Typography>
         </DialogTitle>
         <DialogContent>
+          <br></br>
           {!props.editing && (
             <TextField
               autoFocus
               id="title"
               label="Title"
               type="text"
+              fullWidth
               //variant="standard"
               //color="warning"
               value={props.title}
               onChange={(e) => props.setTitle(e.target.value)}
               error={props.titleError}
+              {...(props.titleError
+                ? { helperText: 'Title is Required!' }
+                : {})}
             />
           )}
           <br></br>
@@ -52,10 +57,15 @@ export default function TaskForm(props) {
             id="description"
             label="Description"
             type="text"
+            fullWidth
             //variant="standard"
             value={props.description}
             onChange={(e) => props.setDescription(e.target.value)}
-            error={props.descriptionError} //{props.description.length != 0 ? false : true}
+            error={props.descriptionError}
+            {...(props.descriptionError
+              ? { helperText: 'Description is Required!' }
+              : {})}
+            //{props.description.length != 0 ? false : true}
             //{props.description.length == 0 && helperText="Description is required!"}
           />
           <br></br>

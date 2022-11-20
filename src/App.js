@@ -15,9 +15,7 @@ export default function App() {
   const [formOpen, setFormOpen] = React.useState(false);
   const [count, setCount] = React.useState(2);
   // Initialize list of tasks
-  const [tasks, setTasks] = React.useState([
-    addTask(1, 'title01', 'description01', '02/03/22', 'low', true, 'none'),
-  ]);
+  const [tasks, setTasks] = React.useState([]);
 
   const [title, setTitle] = React.useState('');
   const [description, setDescription] = React.useState('');
