@@ -42,13 +42,13 @@ export default function TaskForm(props) {
           />
         </DialogContent>
         <DialogActions>
-          <Button variant="contained" onClick={() => props.handleClose()}>
+          <Button variant="contained" onClick={() => props.handleClickAdd()}>
             Add
           </Button>
           <Button
             variant="contained"
             color="error"
-            onClick={() => props.handleClose()}
+            onClick={() => props.handleClickCancel()}
           >
             Cancel
           </Button>

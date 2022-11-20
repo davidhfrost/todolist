@@ -70,6 +70,14 @@ export default function App() {
     setFormOpen(true);
   };
 
+  const handleClickCancel = () => {
+    setFormOpen(false);
+  };
+
+  const handleClickAdd = () => {
+    setFormOpen(false);
+  };
+
   const handleClose = () => {
     setFormOpen(false);
   };
@@ -82,6 +90,8 @@ export default function App() {
         setFormOpen={setFormOpen}
         handleClickOpen={handleClickOpen}
         handleClose={handleClose}
+        handleClickCancel={handleClickCancel}
+        handleClickAdd={handleClickAdd}
       />
       <TopBar handleClickOpen={handleClickOpen} />
       <div>
