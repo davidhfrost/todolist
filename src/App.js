@@ -60,7 +60,7 @@ export default function App() {
     setEditing(true);
     setDescription(taskToUpdate.description);
     setPriority(taskToUpdate.priority);
-    setDeadline(taskToUpdate.deadline);
+    setDeadline(moment(taskToUpdate.deadline));
     setFormOpen(true);
   }
 
