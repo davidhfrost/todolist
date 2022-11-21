@@ -20,6 +20,8 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
+
 
 // Date picker
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -33,10 +35,16 @@ export default function TaskForm(props) {
         <DialogTitle>
           <AppBar sx={{ position: 'absolute' }} fullWidth>
             <Toolbar>
+              {!props.update && <span>
               <AddCircleIcon />
               <Typography variant="h6" component="div">
                 Add Task
-              </Typography>
+              </Typography></span>}
+              {props.update && <span>
+                <BorderColorIcon />
+                <Typography variant="h6" component="div">
+                Edit Task
+              </Typography></span>}
             </Toolbar>
           </AppBar>
           <br></br>
