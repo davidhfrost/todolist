@@ -35,16 +35,18 @@ export default function TaskForm(props) {
         <DialogTitle>
           <AppBar sx={{ position: 'absolute' }} fullWidth>
             <Toolbar>
-              {!props.update && <span>
-              <AddCircleIcon />
+              {!props.editing &&
+              <AddCircleIcon />}
+              {!props.editing && 
               <Typography variant="h6" component="div">
                 Add Task
-              </Typography></span>}
-              {props.update && <span>
-                <BorderColorIcon />
+              </Typography>}
+              {props.editing && 
+                <BorderColorIcon />}
+                {props.editing && 
                 <Typography variant="h6" component="div">
                 Edit Task
-              </Typography></span>}
+              </Typography>}
             </Toolbar>
           </AppBar>
           <br></br>

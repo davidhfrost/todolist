@@ -171,7 +171,7 @@ export default function App() {
         deadline={deadline}
         setDeadline={setDeadline}
         uniqueTitleError={uniqueTitleError}
-        update={update}
+        editing={editing}
       />
       <TopBar handleClickOpen={handleClickOpen} />
       <BasicTable
